@@ -3,6 +3,15 @@
 Running locally:
 ```
 mix deps.get
+touch config/dev.exs
+```
+
+In your config/dev.exs:
+```
+use Mix.Config
+
+config :elixirOC, appID: "<appID>"
+config :elixirOC, apikey: "<apikey>"
 ```
 
 **TODO: Add description**
