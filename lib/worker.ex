@@ -28,10 +28,12 @@ defmodule ElixirOC.Worker do
   end
 
   defp parse_res({:ok, {status, _, body}}) do 
-    {_, status_code, _} = status
+    { _, status_code, _ } = status
     case status_code do
       200 ->
-        body |> JSON.decode! |> fetch_route
+        body 
+        |> JSON.decode! 
+        |> fetch_route
       _ ->
         :error
     end
@@ -45,8 +47,8 @@ defmodule ElixirOC.Worker do
     try do
       {:ok, json}
     rescue
-     _ ->
-      :error
+      _ ->
+        :error
     end
   end  
 
