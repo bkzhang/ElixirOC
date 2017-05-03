@@ -1,6 +1,8 @@
 defmodule ElixirOCTest do
   use ExUnit.Case
   doctest ElixirOC
+  doctest ElixirOC.Worker
+  doctest ElixirOC.Coordinator
 
   test "worker bus routes" do
     assert ElixirOC.Worker.route_summary(3352) == %{80 => "Barrhaven Centre", 277 => "Mackenzie King"}

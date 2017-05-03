@@ -16,7 +16,7 @@ defmodule ElixirOC.Worker do
   end
 
   @doc """
-  Returns route summary of the requested bus stop.
+  Returns a string of the final stop the bus is heading for of the requested bus stop and route number.
 
   ## Examples
 
@@ -24,11 +24,22 @@ defmodule ElixirOC.Worker do
       "Ottawa-Rockcliffe" 
 
   """
+  @spec route_summary(integer, integer) :: String.t 
   def route_summary(bus_stop, route_no) do
     route_summary(bus_stop)
     |> Map.get(route_no)
   end
   
+  @doc """
+  Returns a map of the route summary of the requested bus stop.
+
+  ## Examples
+
+      iex> ElixirOC.Worker.route_summary(7659)
+      %{1 => "Ottawa-Rockcliffe", 7 => "St-Laurent"}
+
+  """
+  @spec route_summary(integer) :: {integer, String.t}
   def route_summary(bus_stop) do
     case request(bus_stop) do
       {:ok, routes} ->
