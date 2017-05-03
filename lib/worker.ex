@@ -18,15 +18,20 @@ defmodule ElixirOC.Worker do
   end
   
   def route_summary(bus_stop) do
-    result = route_url(bus_stop)
-             |> :httpc.request
-             |> parse_resp
-    case result do
+    case request(bus_stop) do
       {:ok, routes} ->
-        Enum.reduce(routes, %{}, fn route, acc -> Map.put(acc, route["RouteNo"], route["RouteHeading"]) end) 
+        Enum.reduce(routes, %{}, fn route, acc -> 
+          Map.put(acc, route["RouteNo"], route["RouteHeading"]) 
+        end) 
       :error ->
         "#{bus_stop} not found"
     end
+  end
+
+  defp request(bus_stop) do
+    route_url(bus_stop)
+    |> :httpc.request
+    |> parse_resp
   end
 
   defp route_url(bus_stop) do
