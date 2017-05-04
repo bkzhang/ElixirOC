@@ -2,7 +2,7 @@
 
 To view the docs open 
 ```
-docs/index.html
+doc/index.html
 ```
 
 Running locally:
