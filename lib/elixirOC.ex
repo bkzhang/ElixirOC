@@ -1,5 +1,14 @@
 defmodule ElixirOC do
 
+  @doc """
+  Returns a map of all the route summaries of the requested bus stops.
+
+  ## Examples
+
+      iex> bus_stops = [7659, 3060] 
+      iex> ElixirOC,bus_routes_list(bus_stops)
+
+  """
   def bus_routes_list(bus_stops) do
     coordinator_pid = spawn(ElixirOC.Coordinator, :loop, [[], Enum.count(bus_stops)])
 
