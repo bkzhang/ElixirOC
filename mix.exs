@@ -7,7 +7,14 @@ defmodule ElixirOC.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     
+     # Docs
+     name: "ElixirOC",
+     source_url: "https://github.com/bkzhang/ElixirOC",
+     docs: [main: "ElixirOC",
+            extras: ["README.md"]]
+    ]
   end
 
   # Configuration for the OTP application
@@ -29,6 +36,7 @@ defmodule ElixirOC.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
       {:json, "~> 0.3.0"}
     ]
   end

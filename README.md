@@ -1,5 +1,10 @@
 # ElixirOC
 
+To view the docs open 
+```
+doc/index.html
+```
+
 Running locally:
 ```
 mix deps.get

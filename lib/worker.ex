@@ -8,7 +8,7 @@ defmodule ElixirOC.Worker do
       {sender_pid, bus_stop, route_summary} ->
         send(sender_pid, {:ok, route_summary(bus_stop, route_summary)})
       {sender_pid, bus_stop} ->
-        send(sender_pid, {:ok, route_summary(bus_stop)})
+        send(sender_pid, {:ok, route_summary(bus_stop), bus_stop})
       _ ->
         IO.puts "Message unabled to be processed"
     end
