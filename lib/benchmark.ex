@@ -20,7 +20,7 @@ defmodule Benchmark do
 
     IO.puts "Multiple processes time: #{multi}"
     IO.puts "Single process time:     #{single}"
-    IO.puts "Single - Multi: #{single - multi}"
+    IO.puts "Single - Multi:          #{single - multi}"
     :done
   end
 
