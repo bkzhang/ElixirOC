@@ -21,7 +21,7 @@ defmodule ElixirOC.Coordinator do
       {:exit, main_pid} ->
         send main_pid, {:done, results}
       _ ->
-        loop {results, iterations, expected, main_pid}
+        loop {results, iterations+1, expected, main_pid}
     end
   end
 
