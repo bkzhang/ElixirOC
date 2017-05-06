@@ -11,9 +11,10 @@ Running locally:
 ```
 mix deps.get
 touch config/dev.exs
+touch config/test.exs
 ```
 
-In your config/dev.exs:
+In your config/dev.exs and config/test.exs:
 ```
 use Mix.Config
 
