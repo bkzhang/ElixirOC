@@ -6,30 +6,30 @@ defmodule ElixirOC.Coordinator do
   @doc """
   Continuously loops until it receives the requested amount of bus route summaries and prints out a list tuple by tuple. 
   """
-  def loop(results \\ [], expected) do
+  def loop({results, expected}) do
     receive do
       {:ok, result, bus_stop, route} ->
-        List.keystore(results, bus_stop, 0, {String.to_atom(Integer.to_string(bus_stop)), {route, result}})
-        |> exit_loop(expected)
-        |> loop(expected)
+        {List.keystore(results, bus_stop, 0, {String.to_atom(Integer.to_string(bus_stop)), {route, result}}), expected}
+        |> exit_loop
+        |> loop
       {:ok, result, bus_stop} ->
-        List.keystore(results, bus_stop, 0, {String.to_atom(Integer.to_string(bus_stop)), result})
-        |> exit_loop(expected)
-        |> loop(expected)
+        {List.keystore(results, bus_stop, 0, {String.to_atom(Integer.to_string(bus_stop)), result}), expected}
+        |> exit_loop
+        |> loop
       :exit ->
         Enum.sort(results)
         |> Enum.each(fn r ->
             IO.inspect r
            end)
       _ ->
-        loop(results, expected)
+        loop {results, expected}
     end
   end
 
-  defp exit_loop(results, expected) do
+  defp exit_loop({results, expected}) do
     if Enum.count(results) == expected do
       send self(), :exit
     end
-    results
+    {results, expected}
   end
 end

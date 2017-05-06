@@ -7,7 +7,7 @@ defmodule ElixirOC do
   Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers.
   """
   def bus_routes_list(bus_stops) do
-    coordinator_pid = spawn(ElixirOC.Coordinator, :loop, [[], Enum.count(bus_stops)])
+    coordinator_pid = spawn(ElixirOC.Coordinator, :loop, [{[], Enum.count(bus_stops)}])
 
     bus_stops
     |> Enum.each(fn bus_stop ->
