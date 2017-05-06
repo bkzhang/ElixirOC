@@ -14,6 +14,7 @@ defmodule ElixirOC do
         7659 => %{1 => "Ottawa-Rockcliffe", 7 => "St-Laurent"}}
 
   """
+  @spec bus_routes_list(list) :: map 
   def bus_routes_list(bus_stops) do
     coordinator_pid = spawn(ElixirOC.Coordinator, :loop, [{%{}, 0, Enum.count(bus_stops), self()}])
 

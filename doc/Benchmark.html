@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.15.1">
-    <title>ElixirOC – ElixirOC v0.1.0</title>
+    <title>Benchmark – ElixirOC v0.1.0</title>
     <link rel="stylesheet" href="dist/app-af302bfcc4.css" />
     
     <script src="dist/sidebar_items-06198f4a13.js"></script>
@@ -59,10 +59,10 @@
 
       <h1>
         <small class="visible-xs">ElixirOC v0.1.0</small>
-        ElixirOC
+        Benchmark
         
         
-          <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L1" title="View Source" class="view-source" rel="help">
+          <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/benchmark.ex#L1" title="View Source" class="view-source" rel="help">
             <i class="icon-code"></i>
           </a>
         
@@ -70,7 +70,7 @@
 
       
         <section id="moduledoc">
-          <p>Manages the workers and coordinator.</p>
+          <p>Speedtest of multiple processes vs a single process.</p>
 
         </section>
       
@@ -92,10 +92,10 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#bus_routes_list/1">bus_routes_list(bus_stops)</a>
+    <a href="#run/1">run(number)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers and later receives all the work done by the worker and coordinator</p>
+    <div class="summary-synopsis"><p>Compares single process speed vs multiple processes</p>
 </div>
   
 </div>
@@ -118,15 +118,15 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="bus_routes_list/1">
+          <div class="detail" id="run/1">
   
   <div class="detail-header">
-    <a href="#bus_routes_list/1" class="detail-link" title="Link to this function">
+    <a href="#run/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">bus_routes_list(bus_stops)</span>
+    <span class="signature">run(number)</span>
     
-      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L18" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/benchmark.ex#L10" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -134,22 +134,13 @@
     
       <div class="specs">
         
-          <pre>bus_routes_list(list) :: map</pre>
+          <pre>run(integer) :: atom</pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers and later receives all the work done by the worker and coordinator. </p>
-<h2 id="bus_routes_list/1-examples" class="section-heading">
-  <a href="#bus_routes_list/1-examples" class="hover-link"><i class="icon-link"></i></a>
-  Examples
-</h2>
-
-<pre><code class="iex elixir">iex&gt; routes = [7659, {3060, 16}]
-iex&gt; ElixirOC.bus_routes_list(routes)
-%{3060 =&gt; %{16 =&gt; &quot;Britannia&quot;},
-  7659 =&gt; %{1 =&gt; &quot;Ottawa-Rockcliffe&quot;, 7 =&gt; &quot;St-Laurent&quot;}}</code></pre>
+    <p>Compares single process speed vs multiple processes</p>
 
   </section>
 </div>
