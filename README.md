@@ -2,11 +2,6 @@
 
 Just tinkering around with basic Elixir, Mix and Ottawa's OCTranspo's API for learning purposes.
 
-To view the docs open 
-```
-doc/index.html
-```
-
 Running locally:
 ```
 mix deps.get
@@ -21,6 +16,12 @@ use Mix.Config
 config :elixirOC, appID: "<OCTranspo appID>"
 config :elixirOC, apikey: "<OCTranspo apikey>"
 ```
+
+To view the docs:
+```
+mix docs
+```
+then open `doc/index.html`
 
 Example use:
 ```
