@@ -17,8 +17,8 @@ In your config/dev.exs:
 ```
 use Mix.Config
 
-config :elixirOC, appID: "<appID>"
-config :elixirOC, apikey: "<apikey>"
+config :elixirOC, appID: "<OCTranspo appID>"
+config :elixirOC, apikey: "<OCTranspo apikey>"
 ```
 
 Example use:
