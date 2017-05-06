@@ -3,14 +3,18 @@ defmodule Benchmark do
   Speedtest of multiple processes vs a single process.
   """
 
-  def run do 
+  @doc """
+  Compares single process speed vs multiple processes
+  """
+  @spec run(integer) :: atom
+  def run(number) do 
     IO.puts "Making 200 requests through 200 processes"
     list = Stream.cycle([3060])
-           |> Enum.take(200)
+           |> Enum.take(number)
     multi = time(fn -> ElixirOC.bus_routes_list(list) end) 
     
     IO.puts "Making 200 requests through 1 process"
-    single = time(fn -> Enum.each(1..200, fn _ -> 
+    single = time(fn -> Enum.each(1..number, fn _ -> 
                           ElixirOC.Worker.route_summary(3060) 
                           |> IO.inspect
                         end)
@@ -19,9 +23,10 @@ defmodule Benchmark do
     IO.puts "Multiple processes time: #{multi}"
     IO.puts "Single process time:     #{single}"
     IO.puts "Single - Multi: #{single - multi}"
+    :done
   end
 
-  def time(func) do
+  defp time(func) do
     func
     |> :timer.tc
     |> elem(0)

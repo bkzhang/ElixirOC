@@ -45,8 +45,8 @@ iex(2)> ElixirOC.bus_routes_list(routes)
 {:"3352", {80, "Barrhaven Centre"}}
 ```
 
-Benchmark tests:
+Benchmark tests takes in an integer parameter (how many requests you want to make). Example:
 ```
-Benchmark.run
-```
+Benchmark.run(200)
+``` 
 ![benchmark](.github/benchmark.png)
