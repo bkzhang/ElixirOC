@@ -8,7 +8,7 @@
     <title>ElixirOC – ElixirOC v0.1.0</title>
     <link rel="stylesheet" href="dist/app-af302bfcc4.css" />
     
-    <script src="dist/sidebar_items-ce620c6d43.js"></script>
+    <script src="dist/sidebar_items-92896e1dd2.js"></script>
   </head>
   <body data-type="extras">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -58,6 +58,8 @@
 
 
 <h1>ElixirOC</h1>
+<p>To view the docs open </p>
+<pre><code class="elixir">doc/index.html</code></pre>
 <p>Running locally:</p>
 <pre><code class="elixir">mix deps.get
 touch config/dev.exs</code></pre>
@@ -66,20 +68,26 @@ touch config/dev.exs</code></pre>
 
 config :elixirOC, appID: &quot;&lt;appID&gt;&quot;
 config :elixirOC, apikey: &quot;&lt;apikey&gt;&quot;</code></pre>
-<p><strong>TODO: Add description</strong></p>
-<h2 id="installation" class="section-heading">
-  <a href="#installation" class="hover-link"><i class="icon-link"></i></a>
-  Installation
-</h2>
-
-<p>If <a href="https://hex.pm/docs/publish">available in Hex</a>, the package can be installed
-by adding <code class="inline">elixirOC</code> to your list of dependencies in <code class="inline">mix.exs</code>:</p>
-<pre><code class="elixir">def deps do
-  [{:elixirOC, &quot;~&gt; 0.1.0&quot;}]
-end</code></pre>
-<p>Documentation can be generated with <a href="https://github.com/elixir-lang/ex_doc">ExDoc</a>
-and published on <a href="https://hexdocs.pm">HexDocs</a>. Once published, the docs can
-be found at <a href="https://hexdocs.pm/elixirOC">https://hexdocs.pm/elixirOC</a>.</p>
+<p>Example use:</p>
+<pre><code class="elixir">iex -S mix
+iex(1)&gt; routes = [{3352, 80}, 3060]
+[{3352, 80}, 3060]
+iex(2)&gt; ElixirOC.bus_routes_list(routes)
+:ok
+{:&quot;3060&quot;,
+ [{16, &quot;Britannia&quot;}, {61, &quot;Terry Fox&quot;}, {62, &quot;Stittsville&quot;},
+  {63, &quot;Mackenzie King via Innovation&quot;}, {64, &quot;Mackenzie King via Innovation&quot;},
+  {80, &quot;Tunney&#39;s Pasture&quot;}, {86, &quot;Baseline  Colonnade&quot;}, {87, &quot;Baseline&quot;},
+  {91, &quot;Baseline&quot;}, {94, &quot;Millennium&quot;}, {95, &quot;Barrhaven Centre&quot;},
+  {97, &quot;Bayshore&quot;}, {98, &quot;Tunney&#39;s Pasture&quot;}, {105, &quot;Tunney&#39;s Pasture&quot;},
+  {107, &quot;South Keys&quot;}, {164, &quot;Terry Fox&quot;}, {252, &quot;Bells Corners&quot;},
+  {256, &quot;Kanata&quot;}, {261, &quot;Stittsville&quot;}, {262, &quot;Stittsville&quot;},
+  {263, &quot;Stittsville&quot;}, {264, &quot;Kanata&quot;}, {265, &quot;Kanata&quot;}, {267, &quot;Kanata&quot;},
+  {268, &quot;Kanata&quot;}, {269, &quot;Kanata&quot;}, {270, &quot;Barrhaven&quot;}, {271, &quot;Barrhaven&quot;},
+  {272, &quot;Barrhaven&quot;}, {273, &quot;Barrhaven&quot;}, {277, &quot;Barrhaven&quot;},
+  {282, &quot;Pinecrest&quot;}, {283, &quot;Richmond&quot;}, {403, &quot;Scotiabank Place&quot;},
+  {750, &quot;Greenboro&quot;}]}
+{:&quot;3352&quot;, {80, &quot;Barrhaven Centre&quot;}}</code></pre>
 
       <footer class="footer">
         <p>

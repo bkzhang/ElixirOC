@@ -8,7 +8,7 @@
     <title>ElixirOC.Coordinator – ElixirOC v0.1.0</title>
     <link rel="stylesheet" href="dist/app-af302bfcc4.css" />
     
-    <script src="dist/sidebar_items-ce620c6d43.js"></script>
+    <script src="dist/sidebar_items-92896e1dd2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -69,6 +69,11 @@
       </h1>
 
       
+        <section id="moduledoc">
+          <p>Gathers the result of all the worker processes and prints out the sorted list of bus route summaries.</p>
+
+        </section>
+      
 
       
         <section id="summary" class="details-list">
@@ -87,8 +92,11 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#loop/2">loop(results \\ %{}, expected)</a>
+    <a href="#loop/2">loop(results \\ [], expected)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Continuously loops until it receives the requested amount of bus route summaries and prints it out as a list</p>
+</div>
   
 </div>
 
@@ -118,9 +126,9 @@
     <a href="#loop/2" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">loop(results \\ %{}, expected)</span>
+    <span class="signature">loop(results \\ [], expected)</span>
     
-      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/coordinator.ex#L3" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/coordinator.ex#L9" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -128,7 +136,8 @@
     
   </div>
   <section class="docstring">
-    
+    <p>Continuously loops until it receives the requested amount of bus route summaries and prints it out as a list.</p>
+
   </section>
 </div>
 

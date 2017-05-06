@@ -8,7 +8,7 @@
     <title>ElixirOC – ElixirOC v0.1.0</title>
     <link rel="stylesheet" href="dist/app-af302bfcc4.css" />
     
-    <script src="dist/sidebar_items-ce620c6d43.js"></script>
+    <script src="dist/sidebar_items-92896e1dd2.js"></script>
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -69,6 +69,11 @@
       </h1>
 
       
+        <section id="moduledoc">
+          <p>Manages the workers and coordinator.</p>
+
+        </section>
+      
 
       
         <section id="summary" class="details-list">
@@ -89,6 +94,9 @@
   <div class="summary-signature">
     <a href="#bus_routes_list/1">bus_routes_list(bus_stops)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers</p>
+</div>
   
 </div>
 
@@ -118,7 +126,7 @@
     </a>
     <span class="signature">bus_routes_list(bus_stops)</span>
     
-      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L3" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L9" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -126,7 +134,8 @@
     
   </div>
   <section class="docstring">
-    
+    <p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers.</p>
+
   </section>
 </div>
 

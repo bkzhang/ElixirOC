@@ -1,13 +1,10 @@
 defmodule ElixirOC do
+  @moduledoc """
+  Manages the workers and coordinator.
+  """
 
   @doc """
-  Returns a map of all the route summaries of the requested bus stops.
-
-  ## Examples
-
-      iex> bus_stops = [7659, 3060] 
-      iex> ElixirOC,bus_routes_list(bus_stops)
-
+  Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers.
   """
   def bus_routes_list(bus_stops) do
     coordinator_pid = spawn(ElixirOC.Coordinator, :loop, [[], Enum.count(bus_stops)])

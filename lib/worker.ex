@@ -3,12 +3,15 @@ defmodule ElixirOC.Worker do
   Worker that does all the requests.
   """
 
+  @doc """
+  Sends the requested information to the coordinator pid.
+  """
   def loop do
     receive do
-      {sender_pid, bus_stop, route_summary} ->
-        send(sender_pid, {:ok, route_summary(bus_stop, route_summary)})
+      {sender_pid, {bus_stop, route}} ->
+        send(sender_pid, {:ok, route_summary(bus_stop, route), bus_stop, route})
       {sender_pid, bus_stop} ->
-        send(sender_pid, {:ok, route_summary(bus_stop), bus_stop})
+        send(sender_pid, {:ok, Enum.sort(route_summary(bus_stop)), bus_stop})
       _ ->
         IO.puts "Message unabled to be processed"
     end
