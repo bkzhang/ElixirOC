@@ -10,17 +10,18 @@ defmodule Benchmark do
   def run(number) do 
     list = Stream.cycle([3060])
            |> Enum.take(number)
-    IO.puts "Making #{number} requests through 200 processes"
+    IO.puts "Making #{number} requests through #{number} processes"
     multi = 
       time(fn -> ElixirOC.bus_routes_list(list) end) 
     
     IO.puts "Making #{number} requests through 1 process"
     single = 
-      time(fn -> Enum.each(1..number, fn _ -> ElixirOC.Worker.route_summary(3060) |> IO.inspect end) end)
+      time(fn -> Enum.each(1..number, fn _ -> ElixirOC.Worker.route_summary(3060) end) end)
 
     IO.puts "Multiple processes time: #{multi}"
     IO.puts "Single process time:     #{single}"
-    IO.puts "Single - Multi:          #{single - multi}"
+    IO.puts "Single - Multiple:       #{single - multi}"
+    IO.puts "Multiple processes is #{div(round(single), round(multi))} times faster than a single process"
     :done
   end
 

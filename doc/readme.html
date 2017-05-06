@@ -76,23 +76,13 @@ iex(1)&gt; routes = [{3352, 80}, 3060]
 [{3352, 80}, 3060]
 iex(2)&gt; ElixirOC.bus_routes_list(routes)
 :ok
-{:&quot;3060&quot;,
- [{16, &quot;Britannia&quot;}, {61, &quot;Terry Fox&quot;}, {62, &quot;Stittsville&quot;},
-  {63, &quot;Mackenzie King via Innovation&quot;}, {64, &quot;Mackenzie King via Innovation&quot;},
-  {80, &quot;Tunney&#39;s Pasture&quot;}, {86, &quot;Baseline  Colonnade&quot;}, {87, &quot;Baseline&quot;},
-  {91, &quot;Baseline&quot;}, {94, &quot;Millennium&quot;}, {95, &quot;Barrhaven Centre&quot;},
-  {97, &quot;Bayshore&quot;}, {98, &quot;Tunney&#39;s Pasture&quot;}, {105, &quot;Tunney&#39;s Pasture&quot;},
-  {107, &quot;South Keys&quot;}, {164, &quot;Terry Fox&quot;}, {252, &quot;Bells Corners&quot;},
-  {256, &quot;Kanata&quot;}, {261, &quot;Stittsville&quot;}, {262, &quot;Stittsville&quot;},
-  {263, &quot;Stittsville&quot;}, {264, &quot;Kanata&quot;}, {265, &quot;Kanata&quot;}, {267, &quot;Kanata&quot;},
-  {268, &quot;Kanata&quot;}, {269, &quot;Kanata&quot;}, {270, &quot;Barrhaven&quot;}, {271, &quot;Barrhaven&quot;},
-  {272, &quot;Barrhaven&quot;}, {273, &quot;Barrhaven&quot;}, {277, &quot;Barrhaven&quot;},
-  {282, &quot;Pinecrest&quot;}, {283, &quot;Richmond&quot;}, {403, &quot;Scotiabank Place&quot;},
-  {750, &quot;Greenboro&quot;}]}
-{:&quot;3352&quot;, {80, &quot;Barrhaven Centre&quot;}}</code></pre>
-<p>Benchmark tests takes in an integer parameter (how many requests you want to make). Example:</p>
-<pre><code class="elixir">Benchmark.run(200)</code></pre>
-<p><img src=".github/benchmark.png" alt="benchmark"/></p>
+%{3060 =&gt; %{16 =&gt; &quot;Britannia&quot;, 61 =&gt; &quot;Terry Fox&quot;, 62 =&gt; &quot;Stittsville&quot;,
+    86 =&gt; &quot;Baseline  Colonnade&quot;, 87 =&gt; &quot;Baseline&quot;, 94 =&gt; &quot;Millennium&quot;,
+    95 =&gt; &quot;Barrhaven Centre&quot;, 97 =&gt; &quot;Bayshore&quot;, 98 =&gt; &quot;Tunney&#39;s Pasture&quot;,
+    107 =&gt; &quot;South Keys&quot;, 403 =&gt; &quot;Scotiabank Place&quot;, 750 =&gt; &quot;Greenboro&quot;},
+  7659 =&gt; %{1 =&gt; &quot;Ottawa-Rockcliffe&quot;}}</code></pre>
+<p>Benchmark tests takes in an integer parameter (how many requests you want to make). Example:
+<img src=".github/benchmark.png" alt="benchmark"/></p>
 
       <footer class="footer">
         <p>

@@ -95,7 +95,7 @@
     <a href="#bus_routes_list/1">bus_routes_list(bus_stops)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers</p>
+    <div class="summary-synopsis"><p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers and later receives all the work done by the worker and coordinator</p>
 </div>
   
 </div>
@@ -126,7 +126,7 @@
     </a>
     <span class="signature">bus_routes_list(bus_stops)</span>
     
-      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L9" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bkzhang/ElixirOC/blob/master/lib/elixirOC.ex#L17" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -134,7 +134,16 @@
     
   </div>
   <section class="docstring">
-    <p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers.</p>
+    <p>Spawns coordinator and worker processes and sends the coordinator pid to the spawned workers and later receives all the work done by the worker and coordinator. </p>
+<h2 id="bus_routes_list/1-examples" class="section-heading">
+  <a href="#bus_routes_list/1-examples" class="hover-link"><i class="icon-link"></i></a>
+  Examples
+</h2>
+
+<pre><code class="iex elixir">iex&gt; routes = [7659, {3060, 16}]
+iex&gt; ElixirOC.bus_routes_list(routes)
+%{3060 =&gt; %{16 =&gt; &quot;Britannia&quot;},
+  7659 =&gt; %{1 =&gt; &quot;Ottawa-Rockcliffe&quot;, 7 =&gt; &quot;St-Laurent&quot;}}</code></pre>
 
   </section>
 </div>
