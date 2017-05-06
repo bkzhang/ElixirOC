@@ -11,8 +11,8 @@ defmodule ElixirOC do
 
     bus_stops
     |> Enum.each(fn bus_stop ->
-      worker_pid = spawn(ElixirOC.Worker, :loop, [])
-      send worker_pid, {coordinator_pid, bus_stop}
-    end)
+         worker_pid = spawn(ElixirOC.Worker, :loop, [])
+         send worker_pid, {coordinator_pid, bus_stop}
+       end)
   end
 end
