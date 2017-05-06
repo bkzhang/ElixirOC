@@ -5,10 +5,11 @@ fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-dist/sidebar_items-92896e1dd2.js
+dist/sidebar_items-06198f4a13.js
 api-reference.html
 readme.html
 404.html
+Benchmark.html
 ElixirOC.html
 ElixirOC.Coordinator.html
 ElixirOC.Worker.html

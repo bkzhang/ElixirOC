@@ -8,7 +8,7 @@
     <title>ElixirOC – ElixirOC v0.1.0</title>
     <link rel="stylesheet" href="dist/app-af302bfcc4.css" />
     
-    <script src="dist/sidebar_items-92896e1dd2.js"></script>
+    <script src="dist/sidebar_items-06198f4a13.js"></script>
   </head>
   <body data-type="extras">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
@@ -58,16 +58,18 @@
 
 
 <h1>ElixirOC</h1>
+<p>Just tinkering around with basic Elixir, Mix and Ottawa’s OCTranspo’s API for learning purposes.</p>
 <p>To view the docs open </p>
 <pre><code class="elixir">doc/index.html</code></pre>
 <p>Running locally:</p>
 <pre><code class="elixir">mix deps.get
-touch config/dev.exs</code></pre>
-<p>In your config/dev.exs:</p>
+touch config/dev.exs
+touch config/test.exs</code></pre>
+<p>In your config/dev.exs and config/test.exs:</p>
 <pre><code class="elixir">use Mix.Config
 
-config :elixirOC, appID: &quot;&lt;appID&gt;&quot;
-config :elixirOC, apikey: &quot;&lt;apikey&gt;&quot;</code></pre>
+config :elixirOC, appID: &quot;&lt;OCTranspo appID&gt;&quot;
+config :elixirOC, apikey: &quot;&lt;OCTranspo apikey&gt;&quot;</code></pre>
 <p>Example use:</p>
 <pre><code class="elixir">iex -S mix
 iex(1)&gt; routes = [{3352, 80}, 3060]
@@ -88,6 +90,9 @@ iex(2)&gt; ElixirOC.bus_routes_list(routes)
   {282, &quot;Pinecrest&quot;}, {283, &quot;Richmond&quot;}, {403, &quot;Scotiabank Place&quot;},
   {750, &quot;Greenboro&quot;}]}
 {:&quot;3352&quot;, {80, &quot;Barrhaven Centre&quot;}}</code></pre>
+<p>Benchmark tests takes in an integer parameter (how many requests you want to make). Example:</p>
+<pre><code class="elixir">Benchmark.run(200)</code></pre>
+<p><img src=".github/benchmark.png" alt="benchmark"/></p>
 
       <footer class="footer">
         <p>
