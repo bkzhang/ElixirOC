@@ -44,3 +44,9 @@ iex(2)> ElixirOC.bus_routes_list(routes)
   {750, "Greenboro"}]}
 {:"3352", {80, "Barrhaven Centre"}}
 ```
+
+Benchmark tests:
+```
+Benchmark.run
+```
+![benchmark](.github/benchmark.png)
