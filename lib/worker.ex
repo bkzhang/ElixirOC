@@ -29,7 +29,8 @@ defmodule ElixirOC.Worker do
   """
   @spec route_summary(integer, integer) :: String.t 
   def route_summary(bus_stop, route_no) do
-    route_summary(bus_stop)
+    bus_stop
+    |> route_summary
     |> Map.get(route_no)
   end
   
@@ -46,16 +47,18 @@ defmodule ElixirOC.Worker do
   def route_summary(bus_stop) do
     case request(bus_stop) do
       {:ok, routes} ->
-        Enum.reduce(routes, %{}, fn route, acc -> 
-          Map.put(acc, route["RouteNo"], route["RouteHeading"]) 
-        end) 
+        routes
+        |> Enum.reduce(%{}, fn route, acc -> 
+             Map.put(acc, route["RouteNo"], route["RouteHeading"]) 
+           end) 
       :error ->
         "#{bus_stop} not found"
     end
   end
 
   defp request(bus_stop) do
-    route_url(bus_stop)
+    bus_stop
+    |> route_url
     |> :httpc.request
     |> parse_resp
   end

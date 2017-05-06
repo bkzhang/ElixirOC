@@ -21,7 +21,12 @@ defmodule Benchmark do
     IO.puts "Multiple processes time: #{multi}"
     IO.puts "Single process time:     #{single}"
     IO.puts "Single - Multiple:       #{single - multi}"
-    IO.puts "Multiple processes is #{div(round(single), round(multi))} times faster than a single process"
+    try do 
+      IO.puts "Multiple processes is #{div(round(single), round(multi))} times faster than a single process"
+    rescue
+      _ ->
+        "Could not compute multiplicative speed comparison"
+    end
     :done
   end
 
