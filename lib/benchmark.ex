@@ -4,7 +4,7 @@ defmodule Benchmark do
   """
 
   @doc """
-  Compares single process speed vs multiple processes
+  Compares single process speed vs multiple processes.
   """
   @spec run(integer) :: atom
   def run(number) do 
@@ -27,6 +27,21 @@ defmodule Benchmark do
       _ ->
         "Could not compute multiplicative speed comparison"
     end
+    :done
+  end
+
+  @doc """
+  Speed tests for numltiple processes.
+  """
+  @spec run_multiple(integer) :: atom
+  def run_multiple(number) do
+    list = Stream.cycle([3060])
+           |> Enum.take(number)
+    IO.puts "Making #{number} requests through #{number} processes"
+    multi =
+      time(fn -> ElixirOC.bus_routes_list(list) end)
+
+    IO.puts "Multiple processes time: #{multi}"
     :done
   end
 
