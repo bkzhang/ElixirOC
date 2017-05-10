@@ -13,9 +13,7 @@ defmodule ElixirOC.Coordinator do
         |> exit_loop
         |> loop
       {:ok, result, bus_stop} ->
-        {Enum.reduce(result, results, fn _, acc ->
-          Map.put_new(acc, bus_stop, Map.new(result))
-        end), iterations+1, expected, main_pid} 
+        {Map.put_new(results, bus_stop, Map.new(result)), iterations+1, expected, main_pid} 
         |> exit_loop
         |> loop
       {:exit, main_pid} ->
